@@ -7,8 +7,8 @@
     body {
       margin: 0;
       text-align: center;
-      font-family: "Microsoft JhengHei", sans-serif;
-      background: linear-gradient(to bottom, #E2EAF4, #ffffff);
+      font-family:monospace;">monospace font</span>;
+      background: linear-gradient(to bottom, #F5F8FC, #F5F8FC);
       overflow-x: hidden;
     }
     h1 {
@@ -28,10 +28,12 @@
       max-width: 800px;
     }
     h2 {
-      color: #b22222;
+      color: #173A66;
       font-size: 2em;
       margin-bottom: 20px;
     }
+
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -51,15 +53,7 @@
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .petal {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: pink;
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: fall 10s linear infinite;
-    }
+    
     @keyframes fall {
       from { transform: translateY(-10vh) rotate(0deg); }
       to { transform: translateY(110vh) rotate(360deg); }
@@ -67,61 +61,81 @@
   </style>
 </head>
 <body>
-  <h1>💍 達智 & 曉婷 的婚禮 💍</h1>
-  <p>2026年06月14日(日)  邀請您共享喜悅</p>
+<section>
+  <h1> ▓╠  Dazhi Zhang & Xsiaoting Chen's Wedding  ╣▓ </h1>
+  <p>日期Date: 2026/06/14 Sun.</p>
+  <p>時間Time: 11:30進場 12:00準時開席</p>
+  <p>地點Location: 彭園會館 八德館 E廳</p>
+
+<br><br>
+<hr>
+<br>
 
   <!-- 我們的故事 -->
   <section>
-    <h2>我們的故事</h2>
+    <h2>▓  Our Story  ▓</h2>
     <p>我們在 2018 年相遇，因為一次朋友聚會開始認識，經過多年相伴，決定攜手走進人生新篇章。</p>
   </section>
 
-  <!-- 照片牆 -->
-  <section>
-    <h2>甜蜜回憶</h2>
-    <div class="gallery">
-      <img src="images/photo1.jpg" alt="婚紗照1">
-      <img src="images/photo2.jpg" alt="婚紗照2">
-      <img src="images/photo3.jpg" alt="旅行合照">
+<hr>
+
+  <!-- 照片輪播 -->
+
+  <h2>▓  Pre-wedding  ▓</h2>
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="images/photo1.jpg" style="width:100%; border-radius:10px;">
     </div>
+
+    <div class="mySlides fade">
+      <img src="images/photo2.jpg" style="width:100%; border-radius:10px;">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="images/photo3.jpg" style="width:100%; border-radius:10px;">
+    </div>
+  </div>
+
+<br><br>
+<hr>
+
+  <!-- dress code -->
+  <section>
+    <h2>▓  Dress Code  ▓</h2>
+    <p>Earth-tone clothing 大地色系</p>
   </section>
+
+<hr>
+
+</section>
 
   <!-- 婚禮地點 -->
   <section>
-    <h2>婚禮地點</h2>
-    <p>彭園會館 八德館 E廳</p>
-    <p>停車資訊：置地廣場地下停車場（建議停藍色、綠色區）</p>
+    <h2>ℹ️  停車資訊 Parking Information ℹ️</h2>
+    <p>置地廣場地下停車場（建議停藍色、綠色區）</p>
     <div style="margin-top:20px;">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.246482928152!2d121.300984!3d25.023793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7f8d8b1b2cf%3A0x4b8df4310c9cf4bb!2z5YWJ5r2f6aSo5ZySIOmrmOiKsiDlj6_nurDmsqHnp5HmioDmrKfkuozlvbHmo7o!5e0!3m2!1szh-TW!2stw!4v1695200000000!5m2!1szh-TW!2stw" 
-        width="100%" 
-        height="300" 
-        style="border:0; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);" 
-        allowfullscreen="" 
-        loading="lazy">
-      </iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.028722910015!2d121.29694747478554!3d24.96513737786108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681f2c494402c9%3A0x99947054b4177f8f!2z5b2t5ZyS5YWr5b636aSoIOWvteeJqeWPi-WWhOWpmuemruWgtOWcsMK35bCP5qGM5pW45ama5a60wrfmoYPlnJLlsL7niZnmmKXphZLloLTlnLDmjqjolqY!5e0!3m2!1szh-TW!2stw!4v1758350175083!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 
-  <audio id="bgm" autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
+<hr>
 
   <script>
-    // 產生落花效果
-    for(let i=0; i<15; i++){
-      let petal = document.createElement("div");
-      petal.className = "petal";
-      petal.style.left = Math.random()*100 + "vw";
-      petal.style.animationDuration = (5 + Math.random()*5) + "s";
-      document.body.appendChild(petal);
-    }
+    // 照片輪播
+    let slideIndex = 0;
+    showSlides();
 
-    // 手機瀏覽器需要互動才能播放音樂
-    document.body.addEventListener("click", () => {
-      document.getElementById("bgm").play();
-    });
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 3000); // 每3秒切換一次
+    }
   </script>
 </body>
 </html>
-
