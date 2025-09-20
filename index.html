@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>我們要結婚了！</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <h1>我們要結婚了！</h1>
+    <h2>2026 年 6 月 14 日</h2>
+    <div class="countdown" id="countdown">倒數計時中...</div>
+  </header>
+
+  <section>
+    <div class="info">
+      <p><strong>📍 地點：</strong>彭園會館 八德館 E廳</p>
+      <p><strong>🕰️ 時間：</strong>11:30 進場，12:00 準時開席</p>
+    </div>
+
+    <h2>請回覆您的出席情況：</h2>
+    <form class="rsvp-form">
+      <label>姓名</label>
+      <input type="text" name="name" required>
+
+      <label>是否出席</label>
+      <select name="attend">
+        <option value="yes">會參加</option>
+        <option value="no">無法參加</option>
+      </select>
+
+      <label>祝福語（可選）</label>
+      <textarea name="message" rows="3"></textarea>
+
+      <button type="submit">送出回覆</button>
+    </form>
+  </section>
+
+  <footer>
+    感謝您成為我們的重要見證人 💛 <br>
+    With Love, 敬邀
+  </footer>
+
+  <!-- 背景音樂 -->
+  <audio controls autoplay loop>
+    <source src="LOVE_WINS_ALL.mp3" type="audio/mpeg">
+    您的瀏覽器不支援音樂播放。
+  </audio>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
