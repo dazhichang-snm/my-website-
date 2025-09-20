@@ -1,55 +1,127 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>我們要結婚了！</title>
-  <link href="style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>我們的婚禮喜帖</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(to bottom, #E2EAF4, #ffffff);
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 10%;
+      font-size: 2em;
+      color: #00000;
+      animation: fadeIn 3s ease-in-out;
+    }
+    p {
+      font-size: 1.5em;
+      color: #555;
+      animation: fadeIn 5s ease-in-out;
+    }
+    section {
+      margin: 50px auto;
+      width: 80%;
+      max-width: 800px;
+    }
+    h2 {
+      color: #b22222;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .gallery img {
+      width: 30%;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .petal {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: fall 10s linear infinite;
+    }
+    @keyframes fall {
+      from { transform: translateY(-10vh) rotate(0deg); }
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
+  <h1>💍 達智 & 曉婷 的婚禮 💍</h1>
+  <p>2026年06月14日(日)  邀請您共享喜悅</p>
 
-  <header>
-    <h1>我們要結婚了！</h1>
-    <h2>2026 年 6 月 14 日</h2>
-    <div class="countdown" id="countdown">倒數計時中...</div>
-  </header>
-
+  <!-- 我們的故事 -->
   <section>
-    <div class="info">
-      <p><strong>📍 地點：</strong>彭園會館 八德館 E廳</p>
-      <p><strong>🕰️ 時間：</strong>11:30 進場，12:00 準時開席</p>
-    </div>
-
-    <h2>請回覆您的出席情況：</h2>
-    <form class="rsvp-form">
-      <label>姓名</label>
-      <input type="text" name="name" required>
-
-      <label>是否出席</label>
-      <select name="attend">
-        <option value="yes">會參加</option>
-        <option value="no">無法參加</option>
-      </select>
-
-      <label>祝福語（可選）</label>
-      <textarea name="message" rows="3"></textarea>
-
-      <button type="submit">送出回覆</button>
-    </form>
+    <h2>我們的故事</h2>
+    <p>我們在 2018 年相遇，因為一次朋友聚會開始認識，經過多年相伴，決定攜手走進人生新篇章。</p>
   </section>
 
-  <footer>
-    感謝您成為我們的重要見證人 💛 <br>
-    With Love, 敬邀
-  </footer>
+  <!-- 照片牆 -->
+  <section>
+    <h2>甜蜜回憶</h2>
+    <div class="gallery">
+      <img src="images/photo1.jpg" alt="婚紗照1">
+      <img src="images/photo2.jpg" alt="婚紗照2">
+      <img src="images/photo3.jpg" alt="旅行合照">
+    </div>
+  </section>
 
-  <!-- 背景音樂 -->
-  <audio controls autoplay loop>
-    <source src="LOVE_WINS_ALL.mp3" type="audio/mpeg">
-    您的瀏覽器不支援音樂播放。
+  <!-- 婚禮地點 -->
+  <section>
+    <h2>婚禮地點</h2>
+    <p>彭園會館 八德館 E廳</p>
+    <p>停車資訊：置地廣場地下停車場（建議停藍色、綠色區）</p>
+    <div style="margin-top:20px;">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.246482928152!2d121.300984!3d25.023793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7f8d8b1b2cf%3A0x4b8df4310c9cf4bb!2z5YWJ5r2f6aSo5ZySIOmrmOiKsiDlj6_nurDmsqHnp5HmioDmrKfkuozlvbHmo7o!5e0!3m2!1szh-TW!2stw!4v1695200000000!5m2!1szh-TW!2stw" 
+        width="100%" 
+        height="300" 
+        style="border:0; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <audio id="bgm" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <script src="script.js"></script>
+  <script>
+    // 產生落花效果
+    for(let i=0; i<15; i++){
+      let petal = document.createElement("div");
+      petal.className = "petal";
+      petal.style.left = Math.random()*100 + "vw";
+      petal.style.animationDuration = (5 + Math.random()*5) + "s";
+      document.body.appendChild(petal);
+    }
 
+    // 手機瀏覽器需要互動才能播放音樂
+    document.body.addEventListener("click", () => {
+      document.getElementById("bgm").play();
+    });
+  </script>
 </body>
 </html>
+
