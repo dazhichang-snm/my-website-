@@ -5,143 +5,260 @@
   <title>我們的婚禮喜帖</title>
   <style>
     body {
-      margin: 100;
+      margin: 0;
       text-align: center;
-      font-family:monospace;">monospace font</span>;
-      background: linear-gradient(to bottom, #F5F8FC, #F5F8FC);
+      font-family:"Web Open Font Format", Monospace;
       overflow-x: hidden;
-    }
-    h1 {
-      margin-top: 20%;
-      font-size: 5em;
-      color: #00000;
-      animation: fadeIn 3s ease-in-out;
-    }
-    p {
-      font-size: 2em;
       color: #555;
-      animation: fadeIn 5s ease-in-out;
+      position: relative;
     }
-    section {
-      margin: 70px auto;
+
+    /* 背景圖 DIV */
+    .background {
+      position: fixed;  /* 固定在視窗，隨頁面滾動 */
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 800px;
+      height: 100%;
+      background: url("images/bg-illustration.png") no-repeat center top;
+      background-size: contain;
+      z-index: -1; /* 放在最底層 */
     }
+
+    header {
+      padding: 80px 20px 40px;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      color: #173A66;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      font-size: 1.3em;
+      margin: 8px 0;
+    }
+
+    section {
+      margin: 60px auto;
+      padding: 30px 20px;
+      width: 90%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.7); /* 半透明區塊 */
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transform: scale(0.9);
+      opacity: 0.9;
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      transform: scale(1.1);
+      opacity: 1;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
     h2 {
       color: #173A66;
-      font-size: 3em;
-      margin-bottom: 20px;
+      font-size: 2em;
+      margin-bottom: 15px;
     }
 
+    /* 照片輪播 */
+    .slideshow-container {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+    }
 
-    .gallery {
+    .mySlides {
+      display: none;
+    }
+
+    .mySlides img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 12px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      background: rgba(23,58,102,0.6);
+      border-radius: 50%;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .prev:hover, .next:hover {
+      background: rgba(23,58,102,0.9);
+    }
+
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    .dots {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #ddd;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .active, .dot:hover {
+      background-color: #173A66;
+    }
+
+    /* Dress Code 小插畫 */
+    .dress-icons {
+      margin-top: 15px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 25px;
     }
-    .gallery img {
-      width: 30%;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+
+    .dress-icons .icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
     }
-    .gallery img:hover {
-      transform: scale(1.05);
+
+    .dress-icons .icon:hover {
+      transform: scale(1.15) rotate(-3deg);
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes fall {
-      from { transform: translateY(-10vh) rotate(0deg); }
-      to { transform: translateY(110vh) rotate(360deg); }
     }
   </style>
 </head>
 <body>
-<section>
-  <h1>Dazhi & Xsiaoting's Wedding</h1>
-  <p>日期Date: 2026/06/14 Sun.</p>
-  <p>時間Time: 11:30進場 12:00準時開席</p>
-  <p>地點Location: 彭園會館 八德館 E廳</p>
 
-  <!-- 婚禮人數 -->
+  <!-- 背景圖 -->
+  <div class="background"></div>
+
+  <header>
+    <h1>Dazhi & Xsiaoting's Wedding</h1>
+    <p>日期 Date: 2026/06/14 Sun.</p>
+    <p>時間 Time: 11:30進場 ・ 12:00準時開席</p>
+    <p>地點 Location: 彭園會館 八德館 E廳</p>
+  </header>
+
   <section>
-      <h2>✍🏻 婚禮人數統計 ✍🏻</h2>
-      <p><a href="https://www.surveycake.com/s/KGx7A">surveycake</a></p>
+    <h2>✍🏻 Wedding Attendance Survey ✍🏻</h2>
+    <p><a href="https://www.surveycake.com/s/KGx7A" target="_blank"> 點我填寫調查</a></p>
   </section>
-  
-<br>
-<hr>
 
-  <!-- 我們的故事 -->
   <section>
     <h2>▓  Our Story  ▓</h2>
     <p>我們在 2018 年相遇，因為一次朋友聚會開始認識，經過多年相伴，決定攜手走進人生新篇章。</p>
   </section>
 
+  <section>
+    <h2>▓  Pre-wedding  ▓</h2>
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="images/photo1.jpg" alt="Pre-wedding 1">
+      </div>
+      <div class="mySlides fade">
+        <img src="images/photo2.jpg" alt="Pre-wedding 2">
+      </div>
+      <div class="mySlides fade">
+        <img src="images/photo3.jpg" alt="Pre-wedding 3">
+      </div>
 
-
-  <!-- 照片輪播 -->
-
-  <h2>▓  Pre-wedding  ▓</h2>
-  <div class="slideshow-container">
-    <div class="mySlides fade">
-      <img src="images/photo1.jpg" style="width:100%; border-radius:10px;">
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
     </div>
-
-    <div class="mySlides fade">
-      <img src="images/photo2.jpg" style="width:100%; border-radius:10px;">
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
     </div>
+  </section>
 
-    <div class="mySlides fade">
-      <img src="images/photo3.jpg" style="width:100%; border-radius:10px;">
-    </div>
-  </div>
-
-
-
-  <!-- dress code -->
   <section>
     <h2>▓  Dress Code  ▓</h2>
     <p>Earth-tone clothing 大地色系</p>
   </section>
 
-<hr>
-
-</section>
-
-  <!-- 婚禮地點 -->
   <section>
-    <h2>ℹ️  停車資訊 Parking Information ℹ️</h2>
+    <h2>ℹ️ 停車資訊 Parking Information ℹ️</h2>
     <p>置地廣場地下停車場（建議停藍色、綠色區）</p>
     <div style="margin-top:20px;">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.028722910015!2d121.29694747478554!3d24.96513737786108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681f2c494402c9%3A0x99947054b4177f8f!2z5b2t5ZyS5YWr5b636aSoIOWvteeJqeWPi-WWhOWpmuemruWgtOWcsMK35bCP5qGM5pW45ama5a60wrfmoYPlnJLlsL7niZnmmKXphZLloLTlnLDmjqjolqY!5e0!3m2!1szh-TW!2stw!4v1758350175083!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.028722910015!2d121.29694747478554!3d24.96513737786108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681f2c494402c9%3A0x99947054b4177f8f!2z5b2t5ZyS5YWr5b636aSoIOWvteeJqeWPi-WWhOWpmuemruWgtOWcsMK35bCP5qGM5pW45ama5a60wrfmoYPlnJLlsL7niZnmmKXphZLloLTlnLDmjqjolqY!5e0!3m2!1szh-TW!2stw!4v1758350175083!5m2!1szh-TW!2stw" 
+        width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </section>
 
-
-
-<hr>
-
   <script>
     // 照片輪播
-    let slideIndex = 0;
-    showSlides();
+    let slideIndex = 1;
+    let autoSlide;
 
-    function showSlides() {
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      clearTimeout(autoSlide);
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      clearTimeout(autoSlide);
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
       let i;
       let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+
       for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
       }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
+
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
       slides[slideIndex-1].style.display = "block";  
-      setTimeout(showSlides, 3000); // 每3秒切換一次
+      dots[slideIndex-1].className += " active";
+
+      autoSlide = setTimeout(() => plusSlides(1), 4000); 
     }
+
+    // 區塊進入視窗時放大效果
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(sec => observer.observe(sec));
   </script>
 </body>
 </html>
