@@ -2,7 +2,6 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我們的婚禮喜帖</title>
   <style>
     body {
@@ -14,15 +13,16 @@
       position: relative;
     }
 
+    /* 背景圖 DIV */
     .background {
-      position: fixed;
+      position: fixed;  /* 固定在視窗，隨頁面滾動 */
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: url("images/bg-illustration.png") no-repeat center;
       background-size: contain;
-      z-index: -1;
+      z-index: -1; /* 放在最底層 */
     }
 
     header {
@@ -46,7 +46,7 @@
       padding: 30px 20px;
       width: 90%;
       max-width: 800px;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.7); /* 半透明區塊 */
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       transform: scale(0.9);
@@ -66,6 +66,7 @@
       margin-bottom: 15px;
     }
 
+    /* 照片輪播 */
     .slideshow-container {
       position: relative;
       max-width: 800px;
@@ -124,12 +125,12 @@
       background-color: #173A66;
     }
 
+    /* Dress Code 小插畫 */
     .dress-icons {
       margin-top: 15px;
       display: flex;
       justify-content: center;
       gap: 25px;
-      flex-wrap: wrap;
     }
 
     .dress-icons .icon {
@@ -147,73 +148,11 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* ===== 響應式樣式 ===== */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2em;
-        padding: 0 10px;
-      }
-
-      h2 {
-        font-size: 1.6em;
-      }
-
-      p {
-        font-size: 1.1em;
-        padding: 0 10px;
-      }
-
-      header {
-        padding: 60px 10px 30px;
-      }
-
-      section {
-        padding: 20px 15px;
-        margin: 40px 10px;
-        transform: scale(1);
-        opacity: 1;
-      }
-
-      .prev, .next {
-        padding: 10px;
-        font-size: 16px;
-      }
-
-      .dress-icons .icon {
-        width: 50px;
-        height: 50px;
-      }
-
-      iframe {
-        height: 300px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.7em;
-      }
-
-      h2 {
-        font-size: 1.3em;
-      }
-
-      .prev, .next {
-        font-size: 14px;
-        padding: 8px;
-      }
-
-      .dot {
-        height: 10px;
-        width: 10px;
-        margin: 0 3px;
-      }
-    }
   </style>
 </head>
 <body>
 
+  <!-- 背景圖 -->
   <div class="background"></div>
 
   <header>
@@ -236,12 +175,24 @@
   <section>
     <h2>▓  Pre-wedding  ▓</h2>
     <div class="slideshow-container">
-      <div class="mySlides fade"><img src="images/photo1.jpg" alt="Pre-wedding 1"></div>
-      <div class="mySlides fade"><img src="images/photo2.jpg" alt="Pre-wedding 2"></div>
-      <div class="mySlides fade"><img src="images/photo3.jpg" alt="Pre-wedding 3"></div>
-      <div class="mySlides fade"><img src="images/photo4.jpg" alt="Pre-wedding 4"></div>
-      <div class="mySlides fade"><img src="images/photo5.jpg" alt="Pre-wedding 5"></div>
-      <div class="mySlides fade"><img src="images/photo6.jpg" alt="Pre-wedding 6"></div>
+      <div class="mySlides fade">
+        <img src="images/photo1.jpg" alt="Pre-wedding 1">
+      </div>
+      <div class="mySlides fade">
+        <img src="images/photo2.jpg" alt="Pre-wedding 2">
+      </div>
+      <div class="mySlides fade">
+        <img src="images/photo3.jpg" alt="Pre-wedding 3">
+      </div>
+      <div class="mySlides fade">
+        <img src="images/photo4.jpg" alt="Pre-wedding 4">
+      </div>
+      <div class="mySlides fade">
+        <img src="images/photo5.jpg" alt="Pre-wedding 5">
+      </div>
+      <div class="mySlides fade">
+        <img src="images/photo6.jpg" alt="Pre-wedding 6">
+      </div>
 
       <a class="prev" onclick="plusSlides(-1)">❮</a>
       <a class="next" onclick="plusSlides(1)">❯</a>
@@ -259,14 +210,67 @@
   <section>
     <h2>▓  Dress Code  ▓</h2>
     <p>Earth-tone clothing 大地色系</p>
-    <div class="dress-icons">
-      <img src="images/icon1.png" class="icon" alt="icon1">
-      <img src="images/icon2.png" class="icon" alt="icon2">
-      <img src="images/icon3.png" class="icon" alt="icon3">
-    </div>
   </section>
 
   <section>
     <h2>ℹ️ 停車資訊 Parking Information ℹ️</h2>
     <p>置地廣場地下停車場（建議停藍色、綠色區）</p>
-    <div style="
+    <div style="margin-top:20px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.028722910015!2d121.29694747478554!3d24.96513737786108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681f2c494402c9%3A0x99947054b4177f8f!2z5b2t5ZyS5YWr5b636aSoIOWvteeJqeWPi-WWhOWpmuemruWgtOWcsMK35bCP5qGM5pW45ama5a60wrfmoYPlnJLlsL7niZnmmKXphZLloLTlnLDmjqjolqY!5e0!3m2!1szh-TW!2stw!4v1758350175083!5m2!1szh-TW!2stw" 
+        width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <script>
+    // 照片輪播
+    let slideIndex = 1;
+    let autoSlide;
+
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      clearTimeout(autoSlide);
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      clearTimeout(autoSlide);
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+
+      autoSlide = setTimeout(() => plusSlides(1), 4000); 
+    }
+
+    // 區塊進入視窗時放大效果
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+</body>
+</html>
